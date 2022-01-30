@@ -23,7 +23,7 @@ fetch_events = BashOperator(
 )
 
 def _calculate_stats(input_path, output_path):
-	"""Calculates event stadistics."""
+	"""Calculates event stadistics"""
 	events = pd.read_json(input_path)
 	stats = events.groupby(["date", "user"]).size().reset_index()
 	Path(output_path).parent.mkdir(exist_ok=True)
